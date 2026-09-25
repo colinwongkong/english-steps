@@ -18,3 +18,8 @@
 .article-card .card-bottom{padding-top:17px;font-size:10px}
 .article-card:focus-within{outline:3px solid #27634c44;outline-offset:3px}
 @media(max-width:580px){.article-grid{gap:13px}.article-cover{aspect-ratio:1.9}.article-card-body{padding:14px 15px 15px}}
+
+.generated-audio{width:min(620px,100%)}
+.generated-audio audio{display:block;width:100%;height:42px;accent-color:var(--green)}
+.reader-controls{align-items:stretch;flex-direction:column;gap:10px}
+.reader-controls .speech-options{width:100%;justify-content:space-between}
