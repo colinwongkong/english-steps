@@ -29,7 +29,7 @@
 .article-card .cover-level{pointer-events:none}
 .article-card h3{font-size:21px;margin:0 0 6px;color:var(--ink)}
 .article-card:focus-within{outline:3px solid #27634c44;outline-offset:3px}
-.hero-art{position:relative;overflow:hidden;min-height:320px;border:1px solid #e5e6db;border-radius:22px;background:var(--mint);box-shadow:0 18px 46px #233c2b12}
+.hero-art{position:relative;overflow:hidden;aspect-ratio:16/9;border:1px solid #e5e6db;border-radius:22px;background:var(--mint);box-shadow:0 18px 46px #233c2b12}
 .hero-art img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .article-cover-link:focus-visible{outline:3px solid var(--green);outline-offset:-5px;border-radius:17px}
-@media(max-width:580px){.hero-art{min-height:235px;border-radius:18px}}
+@media(max-width:580px){.hero-art{border-radius:18px}}
