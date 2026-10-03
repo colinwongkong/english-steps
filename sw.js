@@ -5,12 +5,13 @@
  *
  * 发布新内容后如需强制刷新缓存，请递增下方 CACHE_VERSION。
  */
-const CACHE_VERSION = 'english-steps-v5';
+const CACHE_VERSION = 'english-steps-v6';
 const CORE_ASSETS = [
   './',
   './index.html',
   './article.html',
   './music.html',
+  './music-player.html',
   './site.css',
   './articles.js',
   './new-articles.js',
@@ -26,6 +27,7 @@ const CORE_ASSETS = [
   './dictionary-c2.js',
   './music-data.js',
   './music.js',
+  './music-player.js',
   './manifest.json',
   './images/icons/icon-192.png',
   './images/icons/icon-512.png',
