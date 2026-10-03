@@ -6,7 +6,7 @@
  *
  * 发布新内容后如需强制刷新缓存，请递增下方 CACHE_VERSION。
  */
-const CACHE_VERSION = 'english-steps-v1';
+const CACHE_VERSION = 'english-steps-v2';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -21,7 +21,13 @@ const CORE_ASSETS = [
   './manifest.json',
   './images/icons/icon-192.png',
   './images/icons/icon-512.png',
-  './images/icons/icon-maskable-512.png'
+  './images/icons/icon-maskable-512.png',
+  './fonts/fonts.css',
+  './fonts/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2',
+  './fonts/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2',
+  './fonts/cY9AfjOCX1hbuyalUrK439HyjJBG.woff2',
+  './fonts/cY9AfjOCX1hbuyalUrK439DyjJBG.woff2',
+  './fonts/cY9AfjOCX1hbuyalUrK4397yjA.woff2'
 ];
 
 self.addEventListener('install', (event) => {
