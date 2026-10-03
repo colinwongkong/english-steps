@@ -6,11 +6,12 @@
  *
  * 发布新内容后如需强制刷新缓存，请递增下方 CACHE_VERSION。
  */
-const CACHE_VERSION = 'english-steps-v2';
+const CACHE_VERSION = 'english-steps-v3';
 const CORE_ASSETS = [
   './',
   './index.html',
   './article.html',
+  './music.html',
   './site.css',
   './articles.js',
   './new-articles.js',
@@ -18,6 +19,8 @@ const CORE_ASSETS = [
   './article.js',
   './article-audio.js',
   './generated-article-audio.js',
+  './music-data.js',
+  './music.js',
   './manifest.json',
   './images/icons/icon-192.png',
   './images/icons/icon-512.png',
@@ -27,7 +30,38 @@ const CORE_ASSETS = [
   './fonts/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2',
   './fonts/cY9AfjOCX1hbuyalUrK439HyjJBG.woff2',
   './fonts/cY9AfjOCX1hbuyalUrK439DyjJBG.woff2',
-  './fonts/cY9AfjOCX1hbuyalUrK4397yjA.woff2'
+  './fonts/cY9AfjOCX1hbuyalUrK4397yjA.woff2',
+  './music/audio/you-and-me/full.mp3',
+  './music/audio/you-and-me/line01.mp3',
+  './music/audio/you-and-me/line02.mp3',
+  './music/audio/you-and-me/line03.mp3',
+  './music/audio/you-and-me/line04.mp3',
+  './music/audio/you-and-me/line05.mp3',
+  './music/audio/you-and-me/line06.mp3',
+  './music/audio/you-and-me/line07.mp3',
+  './music/audio/you-and-me/line08.mp3',
+  './music/audio/you-and-me/line09.mp3',
+  './music/audio/you-and-me/line10.mp3',
+  './music/audio/you-and-me/line11.mp3',
+  './music/audio/you-and-me/line12.mp3',
+  './music/audio/you-and-me/line13.mp3',
+  './music/audio/keep-going/full.mp3',
+  './music/audio/keep-going/line01.mp3',
+  './music/audio/keep-going/line02.mp3',
+  './music/audio/keep-going/line03.mp3',
+  './music/audio/keep-going/line04.mp3',
+  './music/audio/keep-going/line05.mp3',
+  './music/audio/keep-going/line06.mp3',
+  './music/audio/keep-going/line07.mp3',
+  './music/audio/keep-going/line08.mp3',
+  './music/audio/keep-going/line09.mp3',
+  './music/audio/keep-going/line10.mp3',
+  './music/audio/keep-going/line11.mp3',
+  './music/audio/keep-going/line12.mp3',
+  './music/audio/keep-going/line13.mp3',
+  './music/audio/keep-going/line14.mp3',
+  './music/audio/keep-going/line15.mp3',
+  './music/audio/keep-going/line16.mp3'
 ];
 
 self.addEventListener('install', (event) => {

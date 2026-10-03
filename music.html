@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f5ef"><meta name="description" content="English Steps 音乐跟读：原创分级英文歌曲，跟着 AI 演唱逐句学英语。"><title>音乐跟读 · English Steps</title><link rel="stylesheet" href="site.css"><link rel="manifest" href="manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="English Steps"><link rel="apple-touch-icon" href="images/icons/icon-192.png">
+<style>
+  .music-shell{max-width:900px;margin:auto;padding:0 32px 60px}
+  .music-header{padding:37px 0 22px}
+  .music-header h1{font:500 clamp(34px,5vw,50px)/1.05 Newsreader;margin:12px 0 10px;letter-spacing:-1px}
+  .music-header h1 em{color:var(--green);font-weight:400}
+  .music-header p{color:var(--muted);font-size:12px;line-height:1.8;max-width:560px}
+  .song-select{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 22px}
+  .song-card{position:relative;text-align:left;border:1px solid var(--line);background:var(--white);border-radius:15px;padding:17px 18px;transition:.16s;display:flex;flex-direction:column;gap:5px}
+  .song-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .song-card.active{border-color:var(--green);box-shadow:0 10px 26px #27634c1c}
+  .song-level{position:absolute;top:13px;right:14px;color:var(--green);font-size:9px;font-weight:700;letter-spacing:.5px}
+  .song-card b{font:500 22px Newsreader;color:var(--ink)}
+  .song-cn{font-size:12px;color:var(--muted)}
+  .song-style{font-size:10px;color:var(--muted);margin-top:4px}
+  .music-panel{background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+  .music-top{padding:22px 26px 18px;border-bottom:1px solid var(--line)}
+  .music-id{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .music-level{color:var(--green);background:var(--mint);border-radius:16px;padding:5px 9px;font-size:10px;font-weight:600}
+  .music-style{color:var(--muted);font-size:10px}
+  .music-top h2{font:500 26px Newsreader;margin:0 0 12px}
+  .music-top h2 span{font:400 .55em 'DM Sans',sans-serif;color:var(--muted);letter-spacing:0}
+  .music-full{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .music-full audio{flex:1;min-width:230px;height:40px;accent-color:var(--green)}
+  .music-hint{font-size:11px;color:var(--muted);margin:13px 0 0}
+  .lyric-list{padding:18px 26px 8px}
+  .lyric-line{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:12px;width:100%;text-align:left;background:transparent;border:1px solid transparent;border-radius:11px;padding:11px 13px;transition:.15s}
+  .lyric-line:hover{background:#f6f5ef}
+  .line-en{font:400 20px/1.55 Newsreader,serif;color:var(--ink)}
+  .line-cn{grid-column:1/-1;font-size:12px;color:var(--muted);margin-top:3px}
+  .line-play{color:var(--green);opacity:0;font-size:13px;transition:.15s;align-self:center}
+  .lyric-line:hover .line-play{opacity:.6}
+  .lyric-line.active{background:var(--mint);border-color:#cfe0d4}
+  .lyric-line.active .line-en{color:var(--green)}
+  .lyric-line.active .line-play{opacity:1}
+  @media(max-width:820px){.song-select{grid-template-columns:1fr 1fr}}
+  @media(max-width:580px){.music-shell{padding:0 15px 40px}.music-header{padding:26px 0 18px}.music-header h1{font-size:37px}.song-select{grid-template-columns:1fr}.music-top{padding:18px 16px}.lyric-list{padding:14px 12px 6px}.line-en{font-size:19px}}
+</style></head>
+<body><div class="shell">
+  <header class="topbar"><a class="brand" href="index.html"><span class="brandmark">e</span> English Steps</a><nav class="toplinks"><a href="index.html">阅读书架</a><a href="index.html#about">学习指南</a></nav></header>
+  <div class="music-shell">
+    <div class="music-header">
+      <a class="back-link" href="index.html">← 返回阅读书架</a>
+      <div class="eyebrow">LISTEN · SING · LEARN</div>
+      <h1>音乐跟读 <em>Music Room</em></h1>
+      <p>原创分级英文歌曲，从易到难。跟着 AI 演唱逐句学：点任意一行听这一句的演唱，也可以从头逐句连播。每首歌都配中文翻译与生词。</p>
+    </div>
+    <section class="song-select" id="songSelect" aria-label="选择歌曲"></section>
+    <div class="music-panel" id="musicPanel"></div>
+  </div>
+  <footer class="footer"><span>English Steps · 音乐跟读</span><span>试点曲目为原创歌词 + AI 演唱，逐句学习用。</span></footer>
+</div><script src="music-data.js"></script><script src="music.js"></script><script src="sw-register.js"></script></body></html>
