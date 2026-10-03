@@ -2,11 +2,10 @@
  * 缓存策略：
  * - HTML 页面：网络优先（保证文章更新即时可见），离线时回退缓存
  * - JS/CSS/图片/音频：缓存优先 + 后台更新（stale-while-revalidate）
- * - 跨域请求（在线词典接口）：直接走网络，不缓存
  *
  * 发布新内容后如需强制刷新缓存，请递增下方 CACHE_VERSION。
  */
-const CACHE_VERSION = 'english-steps-v4';
+const CACHE_VERSION = 'english-steps-v5';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -19,6 +18,12 @@ const CORE_ASSETS = [
   './article.js',
   './article-audio.js',
   './generated-article-audio.js',
+  './dictionary-a1.js',
+  './dictionary-a2.js',
+  './dictionary-b1.js',
+  './dictionary-b2.js',
+  './dictionary-c1.js',
+  './dictionary-c2.js',
   './music-data.js',
   './music.js',
   './manifest.json',
@@ -69,7 +74,7 @@ self.addEventListener('fetch', (event) => {
   const request = event.request;
   if (request.method !== 'GET') return;
 
-  // 跨域请求（如在线词典 API）：只走网络，不缓存
+  // 跨域请求：只走网络，不缓存
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
