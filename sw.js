@@ -5,13 +5,14 @@
  *
  * 发布新内容后如需强制刷新缓存，请递增下方 CACHE_VERSION。
  */
-const CACHE_VERSION = 'english-steps-v9';
+const CACHE_VERSION = 'english-steps-v10';
 const CORE_ASSETS = [
   './',
   './index.html',
   './article.html',
   './music.html',
   './music-player.html',
+  './guide.html',
   './site.css',
   './articles.js',
   './new-articles.js',
@@ -42,6 +43,25 @@ const CORE_ASSETS = [
   './images/hub-reading.png',
   './images/hub-music.png',
   './images/hub-guide.png',
+  './images/music-hero.png',
+  './images/song-covers/you-and-me.png',
+  './images/song-covers/keep-going.png',
+  './images/song-covers/a1-sunny-day.png',
+  './images/song-covers/a1-my-family.png',
+  './images/song-covers/a2-bright-city.png',
+  './images/song-covers/a2-sunday-pancakes.png',
+  './images/song-covers/a2-best-friends.png',
+  './images/song-covers/b1-summer-trip.png',
+  './images/song-covers/b1-my-first-job.png',
+  './images/song-covers/b2-who-i-am.png',
+  './images/song-covers/b2-seasons-change.png',
+  './images/song-covers/b2-second-chances.png',
+  './images/song-covers/c1-beyond-the-sky.png',
+  './images/song-covers/c1-memories-in-the-rain.png',
+  './images/song-covers/c1-a-better-world.png',
+  './images/song-covers/c2-fading-sunset.png',
+  './images/song-covers/c2-the-quiet-battle.png',
+  './images/song-covers/c2-threads-of-tomorrow.png',
   './music/audio/you-and-me/full.mp3',
   './music/audio/keep-going/full.mp3',
   './music/audio/a1-sunny-day/full.mp3',

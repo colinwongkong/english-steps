@@ -38,14 +38,17 @@
   @media(max-width:580px){.music-shell{padding:0 15px 40px}.music-header{padding:26px 0 10px}.music-header h1{font-size:37px}.song-grid{grid-template-columns:1fr;gap:10px}}
 </style></head>
 <body><div class="shell">
-  <header class="topbar"><a class="brand" href="index.html"><span class="brandmark">e</span> English Steps</a><nav class="toplinks"><a href="index.html#library">阅读书架</a><a href="music.html" aria-current="page">音乐跟读</a><a href="index.html#about">学习指南</a></nav></header>
-  <div class="music-shell">
-    <div class="music-header">
+  <header class="topbar"><a class="brand" href="index.html"><span class="brandmark">e</span> English Steps</a><nav class="toplinks"><a href="index.html#library">阅读书架</a><a href="music.html" aria-current="page">音乐跟读</a><a href="guide.html">学习指南</a></nav></header>
+  <div class="music-hero">
+    <img class="music-hero-bg" src="images/music-hero.png?v=20261004" alt="音乐跟读页眉背景插画" fetchpriority="high">
+    <div class="music-hero-overlay"></div>
+    <div class="music-hero-copy">
       <a class="back-link" href="index.html">← 返回阅读书架</a>
       <div class="eyebrow">LISTEN · SING · LEARN</div>
       <h1>音乐跟读 <em>Music Room</em></h1>
       <p>原创分级英文歌曲，从 A1 到 C2 分级别。点击任意歌曲，在新页面打开独立播放器：完整演唱 + 歌词随进度高亮 + 中英对照 + 生词。全部为原创歌词 + AI 演唱。</p>
     </div>
+  </div>
     <nav class="level-nav" id="levelNav" aria-label="跳转到级别"></nav>
     <div id="levelSections" aria-label="分级歌曲列表"></div>
   </div>

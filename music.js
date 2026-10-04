@@ -15,6 +15,7 @@
     if(!songs.length)return '';
     const cards=songs.map(s=>`
       <a class="song-card" href="music-player.html?id=${encodeURIComponent(s.id)}" target="_blank" rel="noopener" aria-label="播放歌曲：${esc(s.title)}">
+        <div class="song-cover"><img src="images/song-covers/${encodeURIComponent(s.id)}.png" alt="${esc(s.title)}主题插画" loading="lazy"><span class="cover-level" data-level="${esc(s.level)}">${esc(s.level)} · CEFR</span></div>
         <span class="song-theme" data-level="${esc(s.level)}">${esc(s.theme)}</span>
         <b>${esc(s.title)}</b>
         <span class="song-cn">（${esc(s.cnTitle)}）</span>
