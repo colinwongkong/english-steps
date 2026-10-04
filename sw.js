@@ -5,7 +5,7 @@
  *
  * 发布新内容后如需强制刷新缓存，请递增下方 CACHE_VERSION。
  */
-const CACHE_VERSION = 'english-steps-v8';
+const CACHE_VERSION = 'english-steps-v9';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -38,6 +38,10 @@ const CORE_ASSETS = [
   './fonts/cY9AfjOCX1hbuyalUrK439HyjJBG.woff2',
   './fonts/cY9AfjOCX1hbuyalUrK439DyjJBG.woff2',
   './fonts/cY9AfjOCX1hbuyalUrK4397yjA.woff2',
+  './images/hero-banner.png',
+  './images/hub-reading.png',
+  './images/hub-music.png',
+  './images/hub-guide.png',
   './music/audio/you-and-me/full.mp3',
   './music/audio/keep-going/full.mp3',
   './music/audio/a1-sunny-day/full.mp3',
