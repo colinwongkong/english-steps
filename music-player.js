@@ -33,8 +33,9 @@
     <div class="music-top">
       <div class="music-full">
         <audio id="fullAudio" controls preload="metadata" src="${esc(song.full)}"></audio>
+        <button id="repeatBtn" class="repeat-btn" type="button" data-state="0" aria-label="循环播放：关">循环：关</button>
       </div>
-      <p class="music-hint">播放完整 AI 演唱，歌词随进度高亮；跟着听、跟着读，每句都有中文翻译。</p>
+      <p class="music-hint">播放完整 AI 演唱，歌词随进度高亮；跟着听、跟着读，每句都有中文翻译。点击“循环”可切换单曲循环或列表循环。</p>
     </div>
     <div class="lyric-list" id="lyricList"></div>
     <div class="vocab-wrap"><h2>生词 Vocabulary</h2><div class="wordlist">${vocab}</div></div>`;
@@ -49,6 +50,22 @@
 
   // 歌词随播放进度高亮
   const audio=document.getElementById('fullAudio');
+
+  // 循环控件：0 关闭 / 1 单曲循环 / 2 列表循环
+  const repeatBtn=document.getElementById('repeatBtn');
+  const repeatLabels=['关','单曲循环','列表循环'];
+  let repeatState=0;
+  const renderRepeat=()=>{
+    repeatBtn.textContent='循环：'+repeatLabels[repeatState];
+    repeatBtn.dataset.state=String(repeatState);
+    repeatBtn.setAttribute('aria-label','循环播放：'+repeatLabels[repeatState]);
+  };
+  repeatBtn.addEventListener('click',()=>{
+    repeatState=(repeatState+1)%3;
+    audio.loop=(repeatState===1);
+    renderRepeat();
+  });
+
   audio.addEventListener('timeupdate',()=>{
     const rows=list.querySelectorAll('.lyric-line');
     if(!rows.length)return;
@@ -59,7 +76,12 @@
     rows.forEach((r,i)=>r.classList.toggle('active',i===idx));
   });
   audio.addEventListener('ended',()=>{
+    if(repeatState===1) return; // 单曲循环：audio.loop 自动重播，不触发 ended
     list.querySelectorAll('.lyric-line').forEach(r=>r.classList.remove('active'));
+    if(repeatState===2){
+      if(next) location.href='music-player.html?id='+encodeURIComponent(next.id);
+      else location.href='music-player.html?id='+encodeURIComponent(MUSIC[0].id);
+    }
   });
 
   // 上一首 / 下一首（按级别顺序）

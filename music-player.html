@@ -9,6 +9,10 @@
   .music-level{color:var(--green);background:var(--mint);border-radius:16px;padding:5px 10px;font-size:10px;font-weight:700;letter-spacing:.4px}
   .music-theme{color:var(--green);background:var(--mint);border-radius:16px;padding:5px 10px;font-size:10px;font-weight:600}
   .music-style{color:var(--muted);font-size:11px}
+  .repeat-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:99px;font-size:12px;font-weight:600;background:var(--paper2);color:var(--muted);border:1px solid var(--line);cursor:pointer;transition:.15s;white-space:nowrap}
+  .repeat-btn:hover{border-color:var(--green)}
+  .repeat-btn[data-state="1"],.repeat-btn[data-state="2"]{background:var(--mint);color:var(--green-deep);border-color:var(--green)}
+  @media(max-width:580px){.repeat-btn{width:100%;justify-content:center}}
   /* 播放页级别徽章用各自主题色 */
   .music-level[data-level="A1"]{background:var(--lv-a1);color:#fff}
   .music-level[data-level="A2"]{background:var(--lv-a2);color:#fff}

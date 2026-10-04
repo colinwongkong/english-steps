@@ -5,7 +5,7 @@
  *
  * 发布新内容后如需强制刷新缓存，请递增下方 CACHE_VERSION。
  */
-const CACHE_VERSION = 'english-steps-v15';
+const CACHE_VERSION = 'english-steps-v16';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -64,24 +64,6 @@ const CORE_ASSETS = [
   './images/song-covers/c2-fading-sunset.png',
   './images/song-covers/c2-the-quiet-battle.png',
   './images/song-covers/c2-threads-of-tomorrow.png',
-  './music/audio/you-and-me/full.mp3',
-  './music/audio/keep-going/full.mp3',
-  './music/audio/a1-sunny-day/full.mp3',
-  './music/audio/a1-my-family/full.mp3',
-  './music/audio/a2-bright-city/full.mp3',
-  './music/audio/a2-sunday-pancakes/full.mp3',
-  './music/audio/a2-best-friends/full.mp3',
-  './music/audio/b1-summer-trip/full.mp3',
-  './music/audio/b1-my-first-job/full.mp3',
-  './music/audio/b2-who-i-am/full.mp3',
-  './music/audio/b2-seasons-change/full.mp3',
-  './music/audio/b2-second-chances/full.mp3',
-  './music/audio/c1-beyond-the-sky/full.mp3',
-  './music/audio/c1-memories-in-the-rain/full.mp3',
-  './music/audio/c1-a-better-world/full.mp3',
-  './music/audio/c2-fading-sunset/full.mp3',
-  './music/audio/c2-the-quiet-battle/full.mp3',
-  './music/audio/c2-threads-of-tomorrow/full.mp3',
 ];
 
 self.addEventListener('install', (event) => {
@@ -114,6 +96,14 @@ self.addEventListener('fetch', (event) => {
         caches.open(CACHE_VERSION).then((cache) => cache.put(request, copy));
         return response;
       }).catch(() => caches.match(request).then((cached) => cached || caches.match('./index.html')))
+    );
+    return;
+  }
+
+  // 音频（整首 mp3）：网络优先，失败回退缓存。不预缓存、不对流式 Range 请求缓存，避免缓存损坏。
+  if (url.pathname.match(/\.mp3$/)) {
+    event.respondWith(
+      fetch(request).catch(() => caches.match(request))
     );
     return;
   }
