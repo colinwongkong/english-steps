@@ -196,6 +196,9 @@ a{text-decoration:none}
 .hero-full .hero-copy h1{font:500 clamp(36px,4.8vw,60px)/1.0 Newsreader,serif;letter-spacing:-1.6px;margin:14px 0 18px;max-width:12ch}
 .hero-full .hero-copy h1 em{color:var(--green);font-weight:400}
 .hero-full .hero-copy p{color:var(--ink);font-size:15px;line-height:1.85;max-width:520px;opacity:.92}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.hero-btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:99px;font-size:15px;font-weight:600;color:#fff;background:var(--green);border:1px solid var(--green);box-shadow:0 10px 24px rgba(39,99,76,.22);transition:.16s}
+.hero-btn:hover{background:var(--green-deep);transform:translateY(-2px)}
 .hero-cta{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:13px 26px;background:var(--green);color:#fff;border-radius:99px;font-size:14px;font-weight:600;box-shadow:0 10px 24px rgba(39,99,76,.28);transition:.18s}
 .hero-cta:hover{background:var(--green-deep);transform:translateY(-2px)}
 .hero-scroll{position:relative;text-align:center;padding:38px 0 30px;color:var(--muted);font-size:12px;letter-spacing:.5px}
@@ -220,6 +223,8 @@ a{text-decoration:none}
 @media(max-width:580px){
   .hero-full .hero-nav{padding:16px}
   .hero-split{padding:18px 16px 0;grid-template-columns:1fr;gap:22px}
+  .hero-actions{flex-direction:column}
+  .hero-btn{width:100%;padding:11px 16px;font-size:14px}
   .hero-full .hero-copy h1{font-size:40px}
   .hero-art{aspect-ratio:16/11}
   .hero-scroll{display:none}
