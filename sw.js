@@ -5,7 +5,7 @@
  *
  * 发布新内容后如需强制刷新缓存，请递增下方 CACHE_VERSION。
  */
-const CACHE_VERSION = 'english-steps-v10';
+const CACHE_VERSION = 'english-steps-v11';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -43,6 +43,7 @@ const CORE_ASSETS = [
   './images/hub-reading.png',
   './images/hub-music.png',
   './images/hub-guide.png',
+  './images/home-promo.png',
   './images/music-hero.png',
   './images/song-covers/you-and-me.png',
   './images/song-covers/keep-going.png',
