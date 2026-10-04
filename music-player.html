@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f5ef"><meta name="description" content="English Steps 音乐跟读：单曲播放页，完整 AI 演唱 + 歌词随进度高亮 + 中英对照 + 生词。"><title>音乐播放 · English Steps</title><link rel="stylesheet" href="site.css"><link rel="manifest" href="manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="English Steps"><link rel="apple-touch-icon" href="images/icons/icon-192.png">
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f8fb"><meta name="description" content="English Steps 音乐跟读：单曲播放页，完整 AI 演唱 + 歌词随进度高亮 + 中英对照 + 生词。"><title>音乐播放 · English Steps</title><link rel="stylesheet" href="site.css"><link rel="manifest" href="manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="English Steps"><link rel="apple-touch-icon" href="images/icons/icon-192.png">
 <style>
   .player-shell{max-width:820px;margin:auto;padding:0 32px 60px}
   .player-header{padding:34px 0 18px}
@@ -9,27 +9,34 @@
   .music-level{color:var(--green);background:var(--mint);border-radius:16px;padding:5px 10px;font-size:10px;font-weight:700;letter-spacing:.4px}
   .music-theme{color:var(--green);background:var(--mint);border-radius:16px;padding:5px 10px;font-size:10px;font-weight:600}
   .music-style{color:var(--muted);font-size:11px}
-  .music-panel{background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px}
+  /* 播放页级别徽章用各自主题色 */
+  .music-level[data-level="A1"]{background:var(--lv-a1);color:#fff}
+  .music-level[data-level="A2"]{background:var(--lv-a2);color:#fff}
+  .music-level[data-level="B1"]{background:var(--lv-b1);color:#fff}
+  .music-level[data-level="B2"]{background:var(--lv-b2);color:#fff}
+  .music-level[data-level="C1"]{background:var(--lv-c1);color:#fff}
+  .music-level[data-level="C2"]{background:var(--lv-c2);color:#fff}
+  .music-panel{background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;margin-bottom:22px}
   .music-top{padding:22px 26px 18px;border-bottom:1px solid var(--line)}
   .music-full{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-  .music-full audio{flex:1;min-width:230px;height:42px;accent-color:var(--green)}
+  .music-full audio{flex:1;min-width:230px;height:44px;accent-color:var(--green)}
   .music-hint{font-size:11px;color:var(--muted);margin:13px 0 0}
   .lyric-list{padding:18px 26px 10px}
   .lyric-line{display:block;width:100%;text-align:left;background:transparent;border:1px solid transparent;border-radius:11px;padding:11px 13px;transition:.15s}
-  .lyric-line:hover{background:#f6f5ef}
+  .lyric-line:hover{background:var(--paper2)}
   .line-en{font:400 20px/1.55 Newsreader,serif;color:var(--ink);display:block}
   .line-cn{font-size:12px;color:var(--muted);margin-top:3px;display:block}
-  .lyric-line.active{background:var(--mint);border-color:#cfe0d4}
-  .lyric-line.active .line-en{color:var(--green)}
+  .lyric-line.active{background:var(--mint);border-color:color-mix(in srgb,var(--green) 30%,transparent)}
+  .lyric-line.active .line-en{color:var(--green-deep)}
   .vocab-wrap{padding:20px 26px;border-top:1px solid var(--line)}
   .vocab-wrap h2{font:500 19px Newsreader,serif;margin:0 0 13px}
   .wordlist{display:flex;flex-wrap:wrap;gap:8px}
-  .vocab{display:flex;gap:7px;border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 9px;font-size:11px}
+  .vocab{display:flex;gap:7px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 10px;font-size:11px}
   .vocab b{font-weight:600}
   .vocab span{color:var(--muted)}
   .player-nav{display:flex;justify-content:space-between;gap:12px;margin:26px 0 6px}
-  .player-nav a{text-decoration:none;color:var(--green);border:1px solid var(--line);background:var(--white);border-radius:11px;padding:12px 16px;font-size:12px;transition:.16s;max-width:48%}
-  .player-nav a:hover{border-color:var(--green);box-shadow:var(--shadow)}
+  .player-nav a{text-decoration:none;color:var(--green);border:1px solid var(--line);background:var(--white);border-radius:12px;padding:12px 16px;font-size:12px;transition:.16s;max-width:48%;box-shadow:var(--shadow-sm)}
+  .player-nav a:hover{border-color:var(--green);box-shadow:var(--shadow);transform:translateY(-1px)}
   .player-nav .next{text-align:right;margin-left:auto}
   .player-nav .nav-sub{display:block;font-size:10px;color:var(--muted);margin-top:3px}
   .notfound{padding:70px 20px;text-align:center;color:var(--muted);font-size:14px}

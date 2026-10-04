@@ -22,7 +22,7 @@
     <div class="eyebrow">LISTEN · SING · LEARN</div>
     <h1>${esc(song.title)} <span>（${esc(song.cnTitle)}）</span></h1>
     <div class="music-id">
-      <span class="music-level">${esc(song.level)} · CEFR</span>
+      <span class="music-level" data-level="${esc(song.level)}">${esc(song.level)} · CEFR</span>
       <span class="music-theme">${esc(song.theme)}</span>
       <span class="music-style">${esc(song.style)}</span>
     </div>`;

@@ -15,14 +15,14 @@
     if(!songs.length)return '';
     const cards=songs.map(s=>`
       <a class="song-card" href="music-player.html?id=${encodeURIComponent(s.id)}" target="_blank" rel="noopener" aria-label="播放歌曲：${esc(s.title)}">
-        <span class="song-theme">${esc(s.theme)}</span>
+        <span class="song-theme" data-level="${esc(s.level)}">${esc(s.theme)}</span>
         <b>${esc(s.title)}</b>
         <span class="song-cn">（${esc(s.cnTitle)}）</span>
         <span class="song-style">${esc(s.style)}</span>
         <span class="song-meta"><span>${s.lines.length} 行歌词 · ${code} CEFR</span><span class="song-arrow" aria-hidden="true">↗</span></span>
       </a>`).join('');
     return `<section class="music-level-sec" id="level-${code}">
-      <div class="sec-head"><span class="lvl-badge">${code}</span><span class="lvl-name">${cn}</span><span class="lvl-en">${en}</span><span class="lvl-count">${songs.length} 首</span></div>
+      <div class="sec-head"><span class="lvl-badge" data-level="${code}">${code}</span><span class="lvl-name">${cn}</span><span class="lvl-en">${en}</span><span class="lvl-count">${songs.length} 首</span></div>
       <div class="song-grid">${cards}</div>
     </section>`;
   }).join('');

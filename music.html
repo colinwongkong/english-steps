@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f5ef"><meta name="description" content="English Steps 音乐跟读：原创分级英文歌曲，从 A1 到 C2 分级别，点击歌曲跳转独立播放页跟学。"><title>音乐跟读 · English Steps</title><link rel="stylesheet" href="site.css"><link rel="manifest" href="manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="English Steps"><link rel="apple-touch-icon" href="images/icons/icon-192.png">
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f8fb"><meta name="description" content="English Steps 音乐跟读：原创分级英文歌曲，从 A1 到 C2 分级别，点击歌曲跳转独立播放页跟学。"><title>音乐跟读 · English Steps</title><link rel="stylesheet" href="site.css"><link rel="manifest" href="manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="English Steps"><link rel="apple-touch-icon" href="images/icons/icon-192.png">
 <style>
   .music-shell{max-width:960px;margin:auto;padding:0 32px 60px}
   .music-header{padding:34px 0 14px}
@@ -7,8 +7,8 @@
   .music-header h1 em{color:var(--green);font-weight:400}
   .music-header p{color:var(--muted);font-size:12px;line-height:1.8;max-width:600px}
   .level-nav{display:flex;gap:9px;flex-wrap:wrap;margin:6px 0 30px}
-  .level-nav a{text-decoration:none;border:1px solid var(--line);background:transparent;border-radius:22px;padding:9px 15px;font-size:12px;color:var(--muted);transition:.16s}
-  .level-nav a:hover,.level-nav a:focus-visible{border-color:var(--green);color:var(--green);outline:none}
+  .level-nav a{text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:22px;padding:9px 15px;font-size:12px;color:var(--muted);transition:.16s;box-shadow:var(--shadow-sm)}
+  .level-nav a:hover,.level-nav a:focus-visible{border-color:var(--green);color:var(--green);outline:none;transform:translateY(-1px)}
   .level-nav a b{font-size:13px}
   .music-level-sec{margin:0 0 34px}
   .sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:11px;margin-bottom:15px}
@@ -17,15 +17,23 @@
   .sec-head .lvl-en{color:var(--muted);font-size:11px}
   .sec-head .lvl-count{margin-left:auto;color:var(--muted);font-size:11px}
   .song-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
-  .song-card{position:relative;display:flex;flex-direction:column;gap:4px;text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:16px;padding:18px 19px;transition:transform .16s,box-shadow .16s,border-color .2s;color:var(--ink);box-shadow:0 5px 20px #233c2b06}
-  .song-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d3dfd3}
+  .song-card{position:relative;display:flex;flex-direction:column;gap:4px;text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:18px;padding:18px 19px;transition:transform .2s,box-shadow .2s,border-color .2s;color:var(--ink);box-shadow:var(--shadow-sm)}
+  .song-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--green) 30%,var(--line))}
   .song-card b{font:500 21px Newsreader,serif;padding-right:54px}
   .song-cn{font-size:12px;color:var(--muted);line-height:1.5}
   .song-theme{position:absolute;top:15px;right:16px;color:var(--green);background:var(--mint);border-radius:16px;padding:4px 9px;font-size:9px;font-weight:600}
   .song-style{font-size:10px;color:var(--muted);margin-top:5px}
   .song-meta{margin-top:auto;padding-top:15px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:10px}
-  .song-arrow{color:var(--green);font-size:17px}
-  .song-card:focus-visible{outline:3px solid #27634c44;outline-offset:3px}
+  .song-arrow{color:var(--green);font-size:17px;transition:transform .2s}
+  .song-card:hover .song-arrow{transform:translate(2px,-2px)}
+  .song-card:focus-visible{outline:3px solid rgba(11,138,109,.35);outline-offset:3px}
+  /* 每个 CEFR 级别的徽章与主题标签用各自主题色 */
+  .lvl-badge[data-level="A1"],.song-theme[data-level="A1"]{background:var(--lv-a1);color:#fff}
+  .lvl-badge[data-level="A2"],.song-theme[data-level="A2"]{background:var(--lv-a2);color:#fff}
+  .lvl-badge[data-level="B1"],.song-theme[data-level="B1"]{background:var(--lv-b1);color:#fff}
+  .lvl-badge[data-level="B2"],.song-theme[data-level="B2"]{background:var(--lv-b2);color:#fff}
+  .lvl-badge[data-level="C1"],.song-theme[data-level="C1"]{background:var(--lv-c1);color:#fff}
+  .lvl-badge[data-level="C2"],.song-theme[data-level="C2"]{background:var(--lv-c2);color:#fff}
   @media(max-width:820px){.song-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:580px){.music-shell{padding:0 15px 40px}.music-header{padding:26px 0 10px}.music-header h1{font-size:37px}.song-grid{grid-template-columns:1fr;gap:10px}}
 </style></head>
