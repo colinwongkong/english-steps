@@ -5,7 +5,7 @@
  *
  * 发布新内容后如需强制刷新缓存，请递增下方 CACHE_VERSION。
  */
-const CACHE_VERSION = 'english-steps-v7';
+const CACHE_VERSION = 'english-steps-v8';
 const CORE_ASSETS = [
   './',
   './index.html',
